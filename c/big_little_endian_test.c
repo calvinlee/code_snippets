@@ -7,4 +7,6 @@ int main(){
     }else{
         printf("Big endian!\n");
     }
+
+    printf("Value of EOF is %d\n",EOF);
 }

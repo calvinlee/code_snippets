@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, AndroidMain!</string>
+    <string name="app_name">AndroidSampleCode</string>
+    <string name="dangerous_permission">This is a dangerous permission</string>
+    <string name="load_ok">Successfully loaded file</string>
+    <string name="restore_ok">Successfully restored file</string>
+    <string name="save_ok">Successfully saved file</string>
+    <string name="notification_content_title">Starting</string>
+    <string name="notification_ticker_text">Something is ongoing…</string>
+    <string name="notification_content_text">Preparing for %1$s</string>
+    <string name="notification_progress_init">10%</string>
+
+</resources>
