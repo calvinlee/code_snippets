@@ -16,6 +16,7 @@ import android.content.Context;
 import android.content.UriMatcher;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.database.MatrixCursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
@@ -30,6 +31,7 @@ import android.util.Log;
  * This demo shows how to provide large files via ContentProvider in addition to
  * permission control on this provider.
  * 
+ * @see http://stackoverflow.com/questions/3034575/passing-binary-blob-through-an-android-content-provider
  * @author calvin
  */
 public class FileProvider extends ContentProvider {
@@ -44,10 +46,14 @@ public class FileProvider extends ContentProvider {
     public static final int DB_VERSION = 1;
 
     static final String FILES_PATH = "files";
+    
+    static final String MIME_PATH = "mime";
 
     private static final int FILES = 1;
 
     private static final int FILES_ID = 2;
+    
+    private static final int MIME = 3;
 
     private static final UriMatcher sUriMatcher;
 
@@ -64,6 +70,7 @@ public class FileProvider extends ContentProvider {
     static {
         sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
         sUriMatcher.addURI(AUTHORITY, FILES_PATH, FILES);
+        sUriMatcher.addURI(AUTHORITY, MIME_PATH, MIME);
         sUriMatcher.addURI(AUTHORITY, FILES_PATH + "/#", FILES_ID);
     }
 
@@ -164,6 +171,22 @@ public class FileProvider extends ContentProvider {
             case FILES_ID:
                 qb.appendWhere(NamedFile._ID + "=" + uri.getPathSegments().get(1));
                 break;
+            case MIME:
+                MatrixCursor cursor = new MatrixCursor(new String[] {
+                    "supported"
+                });
+
+                cursor.addRow(new String[] {
+                        "text/plain"
+                    });
+                cursor.addRow(new String[] {
+                        "img/png"
+                    });
+                cursor.addRow(new String[] {
+                        "text/v_card"
+                    });
+                cursor.setNotificationUri(getContext().getContentResolver(), uri);
+                return cursor;
             default:
                 throw new IllegalArgumentException("Unknown URI " + uri);
         }

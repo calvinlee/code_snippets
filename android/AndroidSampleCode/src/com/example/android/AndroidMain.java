@@ -16,6 +16,7 @@ import com.example.android.activity.ProgressNotificationDemo;
 import com.example.android.activity.RunningTasksPrinter;
 import com.example.android.activity.SystemPropertyTest;
 import com.example.android.activity.TombstoneCrashDemo;
+import com.example.android.activity.UseLibraryTest;
 import com.example.android.activity.WebviewTestActivity;
 
 public class AndroidMain extends Activity {
@@ -29,7 +30,7 @@ public class AndroidMain extends Activity {
 //
 //        startActivity(new Intent(this, MediaOnlineStreamDemo.class));
 //        startActivity(new Intent(this, OnSaveInstanceStateTestActivity.class));
-        startActivity(new Intent(this, PermissionGidsTest.class));
+//        startActivity(new Intent(this, PermissionGidsTest.class));
 //        startActivity(new Intent(this, RunningTasksPrinter.class));
 //        startActivity(new Intent(this, SystemPropertyTest.class));
 //        startActivity(new Intent(this, TombstoneCrashDemo.class));
@@ -37,6 +38,8 @@ public class AndroidMain extends Activity {
 //        startActivity(new Intent(this, ConnectionTestDemo.class));
 
 //        startActivity(new Intent(this, ProgressNotificationDemo.class));
+        
+        startActivity(new Intent(this, UseLibraryTest.class));
         finish();
     }
 }
