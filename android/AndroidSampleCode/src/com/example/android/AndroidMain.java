@@ -39,7 +39,7 @@ public class AndroidMain extends Activity {
 
 //        startActivity(new Intent(this, ProgressNotificationDemo.class));
         
-        startActivity(new Intent(this, UseLibraryTest.class));
+        startActivity(new Intent(this, RunningTasksPrinter.class));
         finish();
     }
 }

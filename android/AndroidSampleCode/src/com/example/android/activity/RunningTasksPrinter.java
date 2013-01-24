@@ -31,6 +31,7 @@ public class RunningTasksPrinter extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         long start = System.currentTimeMillis();
         File folder = new File(Environment.getExternalStorageDirectory() + "/" + ROOT_FOLDER);
         if (!folder.isDirectory()) {
